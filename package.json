@@ -1,0 +1,10 @@
+{
+  "name": "markets-recap",
+  "private": true,
+  "scripts": {
+    "setup": "python3 -m venv .venv && .venv/bin/pip install -r requirements.txt && cd render && npm install",
+    "daily": ".venv/bin/python run.py",
+    "rerender": ".venv/bin/python run.py --date",
+    "studio": "cd render && npx remotion studio src/index.ts --public-dir=../build/$(date +%F) --props=../build/$(date +%F)/props.json"
+  }
+}

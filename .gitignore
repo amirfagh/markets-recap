@@ -1,0 +1,8 @@
+.venv/
+render/node_modules/
+build/
+out/
+__pycache__/
+render/build/
+*.log
+.DS_Store

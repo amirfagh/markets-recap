@@ -1,0 +1,21 @@
+{
+  "name": "markets-recap-render",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio src/index.ts --public-dir=../build/latest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/heebo": "5.2.5",
+    "@fontsource/ibm-plex-sans-arabic": "5.2.5",
+    "@fontsource/inter": "5.2.5",
+    "@remotion/cli": "4.0.545",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.545"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "typescript": "5.6.3"
+  }
+}

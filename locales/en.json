@@ -1,0 +1,181 @@
+{
+  "dir": "ltr",
+  "brand": "Markets in 30 Seconds",
+  "sets": {
+    "wallstreet": {
+      "title": "Wall Street in 30 Seconds",
+      "title_lines": [
+        "Wall Street",
+        "in 30 Seconds"
+      ],
+      "label": "Wall Street",
+      "hashtags": [
+        "#stocks",
+        "#wallstreet",
+        "#stockmarket",
+        "#sp500",
+        "#investing"
+      ]
+    },
+    "crypto": {
+      "title": "Crypto in 30 Seconds",
+      "title_lines": [
+        "Crypto",
+        "in 30 Seconds"
+      ],
+      "label": "Crypto",
+      "hashtags": [
+        "#crypto",
+        "#bitcoin",
+        "#ethereum",
+        "#cryptonews",
+        "#btc"
+      ]
+    },
+    "macro": {
+      "title": "Global Macro in 30 Seconds",
+      "title_lines": [
+        "Global Macro",
+        "in 30 Seconds"
+      ],
+      "label": "Global Macro",
+      "hashtags": [
+        "#macro",
+        "#gold",
+        "#oil",
+        "#forex",
+        "#markets"
+      ]
+    }
+  },
+  "names": {
+    "spx": "S&P 500",
+    "ndx": "Nasdaq",
+    "dji": "Dow Jones",
+    "rut": "Russell 2000",
+    "btc": "Bitcoin",
+    "eth": "Ethereum",
+    "sol": "Solana",
+    "xrp": "XRP",
+    "bnb": "BNB",
+    "gold": "Gold",
+    "oil": "Oil",
+    "dxy": "Dollar Index",
+    "eurusd": "EUR/USD",
+    "n225": "Nikkei 225",
+    "dax": "DAX",
+    "ta35": "TA-35",
+    "usdils": "USD/ILS",
+    "aramco": "Saudi Aramco",
+    "cib": "CIB Egypt"
+  },
+  "spoken_names": {
+    "spx": "The S&P 500",
+    "ndx": "The Nasdaq",
+    "dji": "The Dow",
+    "rut": "The Russell 2000",
+    "btc": "Bitcoin",
+    "eth": "Ether",
+    "sol": "Solana",
+    "xrp": "XRP",
+    "bnb": "BNB",
+    "gold": "Gold",
+    "oil": "Oil",
+    "dxy": "The dollar index",
+    "eurusd": "The euro",
+    "n225": "Japan's Nikkei",
+    "dax": "Germany's DAX",
+    "ta35": "Tel Aviv's TA-35",
+    "usdils": "The dollar",
+    "aramco": "Saudi Aramco",
+    "cib": "Egypt's CIB"
+  },
+  "companies": {
+    "AAPL": "Apple",
+    "MSFT": "Microsoft",
+    "NVDA": "Nvidia",
+    "AMZN": "Amazon",
+    "GOOGL": "Alphabet",
+    "META": "Meta",
+    "TSLA": "Tesla",
+    "AVGO": "Broadcom",
+    "BRK-B": "Berkshire",
+    "JPM": "JPMorgan",
+    "LLY": "Eli Lilly",
+    "V": "Visa",
+    "WMT": "Walmart",
+    "NFLX": "Netflix",
+    "AMD": "AMD"
+  },
+  "verbs": {
+    "up_big": "surged",
+    "up": "climbed",
+    "up_small": "edged up",
+    "down_big": "tumbled",
+    "down": "fell",
+    "down_small": "slipped",
+    "flat": "was flat"
+  },
+  "units": {
+    "pts": "",
+    "usd": "dollars",
+    "fx": "dollars",
+    "ils": "shekels",
+    "sar": "riyals",
+    "egp": "Egyptian pounds"
+  },
+  "hook": "{name} {verb} {pct}. Today's biggest mover.",
+  "asset": "{name} {verb} {pct}, to {price}.",
+  "asset_flat": "{name} {verb} at {price}.",
+  "asset_stale": "At its last close, {name} {verb} {pct}, to {price}.",
+  "top_asset": "Among mega caps, {name} {verb} {pct}, to {price}.",
+  "summary": "{up} up, {down} down. That's your snapshot.",
+  "outro": "Follow for tomorrow's recap.",
+  "pct": "{value} percent",
+  "months": [
+    "JAN",
+    "FEB",
+    "MAR",
+    "APR",
+    "MAY",
+    "JUN",
+    "JUL",
+    "AUG",
+    "SEP",
+    "OCT",
+    "NOV",
+    "DEC"
+  ],
+  "months_long": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "date_format": "{month_long} {d}, {y}",
+  "ui": {
+    "biggest_mover": "Biggest mover",
+    "today": "Today",
+    "last_close": "Last close",
+    "five_day": "5-day",
+    "summary": "Today's board",
+    "up": "up",
+    "down": "down",
+    "follow": "Follow for tomorrow's recap",
+    "follow_btn": "+ Follow",
+    "disclaimer": "Not financial advice.",
+    "top_mover": "Top mega-cap mover"
+  },
+  "post_caption": "{title} — {date}\nBiggest mover: {mover_name} {mover_pct}.\n{lines}\nNot financial advice.",
+  "hook_with_price": "{name} {verb} {pct}, to {price}. Today's biggest mover.",
+  "hook_down": "{name} lost {pct} in one day. Were you still holding?",
+  "hook_up": "{name} jumped {pct} in one day. Did you already sell?"
+}

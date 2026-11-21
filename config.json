@@ -1,0 +1,243 @@
+{
+  "voice_rate": "+15%",
+  "segment_gap_s": 0.15,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "languages": {
+    "en": {
+      "voice": "en-US-GuyNeural"
+    },
+    "ar": {
+      "voice": "ar-AE-FatimaNeural",
+      "sets": {
+        "macro": {
+          "assets": [
+            "oil",
+            "gold",
+            "aramco",
+            "cib",
+            "dxy"
+          ]
+        }
+      },
+      "voice_rate": "+20%"
+    },
+    "he": {
+      "voice": "he-IL-HilaNeural",
+      "sets": {
+        "macro": {
+          "assets": [
+            "ta35",
+            "usdils",
+            "gold",
+            "oil",
+            "dxy"
+          ]
+        }
+      },
+      "voice_rate": "+20%"
+    }
+  },
+  "post_order": [
+    "macro",
+    "crypto",
+    "wallstreet"
+  ],
+  "sets": {
+    "wallstreet": {
+      "accent": "#4C8DFF",
+      "date_part": "day",
+      "assets": [
+        "spx",
+        "ndx",
+        "dji",
+        "rut",
+        "top"
+      ]
+    },
+    "crypto": {
+      "accent": "#A78BFA",
+      "date_part": "month",
+      "assets": [
+        "btc",
+        "eth",
+        "sol",
+        "xrp",
+        "bnb"
+      ],
+      "mover_in_hook_only": true
+    },
+    "macro": {
+      "accent": "#FFB547",
+      "date_part": "year",
+      "assets": [
+        "gold",
+        "oil",
+        "dxy",
+        "eurusd",
+        "n225",
+        "dax"
+      ]
+    }
+  },
+  "assets": {
+    "spx": {
+      "ticker": "SPX",
+      "source": "yahoo",
+      "symbol": "^GSPC",
+      "unit": "pts",
+      "decimals": 0
+    },
+    "ndx": {
+      "ticker": "IXIC",
+      "source": "yahoo",
+      "symbol": "^IXIC",
+      "unit": "pts",
+      "decimals": 0
+    },
+    "dji": {
+      "ticker": "DJI",
+      "source": "yahoo",
+      "symbol": "^DJI",
+      "unit": "pts",
+      "decimals": 0
+    },
+    "rut": {
+      "ticker": "RUT",
+      "source": "yahoo",
+      "symbol": "^RUT",
+      "unit": "pts",
+      "decimals": 0
+    },
+    "top": {
+      "source": "top_mover",
+      "unit": "usd",
+      "decimals": 2,
+      "universe": [
+        "AAPL",
+        "MSFT",
+        "NVDA",
+        "AMZN",
+        "GOOGL",
+        "META",
+        "TSLA",
+        "AVGO",
+        "BRK-B",
+        "JPM",
+        "LLY",
+        "V",
+        "WMT",
+        "NFLX",
+        "AMD"
+      ]
+    },
+    "btc": {
+      "ticker": "BTC",
+      "source": "coingecko",
+      "symbol": "bitcoin",
+      "unit": "usd",
+      "decimals": 0
+    },
+    "eth": {
+      "ticker": "ETH",
+      "source": "coingecko",
+      "symbol": "ethereum",
+      "unit": "usd",
+      "decimals": 0
+    },
+    "sol": {
+      "ticker": "SOL",
+      "source": "coingecko",
+      "symbol": "solana",
+      "unit": "usd",
+      "decimals": 2
+    },
+    "xrp": {
+      "ticker": "XRP",
+      "source": "coingecko",
+      "symbol": "ripple",
+      "unit": "usd",
+      "decimals": 4
+    },
+    "bnb": {
+      "ticker": "BNB",
+      "source": "coingecko",
+      "symbol": "binancecoin",
+      "unit": "usd",
+      "decimals": 0
+    },
+    "gold": {
+      "ticker": "XAU",
+      "source": "yahoo",
+      "symbol": "GC=F",
+      "unit": "usd",
+      "decimals": 0
+    },
+    "oil": {
+      "ticker": "WTI",
+      "source": "yahoo",
+      "symbol": "CL=F",
+      "unit": "usd",
+      "decimals": 2
+    },
+    "dxy": {
+      "ticker": "DXY",
+      "source": "yahoo",
+      "symbol": "DX-Y.NYB",
+      "unit": "pts",
+      "decimals": 2
+    },
+    "eurusd": {
+      "ticker": "EUR/USD",
+      "source": "yahoo",
+      "symbol": "EURUSD=X",
+      "unit": "fx",
+      "decimals": 4
+    },
+    "n225": {
+      "ticker": "N225",
+      "source": "yahoo",
+      "symbol": "^N225",
+      "unit": "pts",
+      "decimals": 0
+    },
+    "dax": {
+      "ticker": "DAX",
+      "source": "yahoo",
+      "symbol": "^GDAXI",
+      "unit": "pts",
+      "decimals": 0
+    },
+    "ta35": {
+      "ticker": "TA-35",
+      "source": "yahoo",
+      "symbol": "TA35.TA",
+      "unit": "pts",
+      "decimals": 0
+    },
+    "usdils": {
+      "ticker": "USD/ILS",
+      "source": "yahoo",
+      "symbol": "ILS=X",
+      "unit": "ils",
+      "decimals": 3
+    },
+    "aramco": {
+      "ticker": "2222",
+      "source": "yahoo",
+      "symbol": "2222.SR",
+      "unit": "sar",
+      "decimals": 2,
+      "note": "Stand-in for TASI: Yahoo has no TASI history"
+    },
+    "cib": {
+      "ticker": "COMI",
+      "source": "yahoo",
+      "symbol": "COMI.CA",
+      "unit": "egp",
+      "decimals": 2,
+      "note": "Stand-in for EGX30: Yahoo has no EGX30 history"
+    }
+  }
+}
