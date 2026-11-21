@@ -70,7 +70,8 @@ def grid_preview(covers: list[Path], out: Path) -> None:
 
 
 def run_language(cfg: dict, lang: str, set_ids: list[str], date: str, args, refreshed: set) -> None:
-    loc = load_locale(ROOT, lang)
+    weekly = args.mode == "weekly"
+    loc = load_locale(ROOT, lang, weekly)
     voice = args.voice or cfg["languages"][lang]["voice"]
     label = date_label(loc, date)
     out_dir = ROOT / "out" / date / lang
@@ -81,13 +82,15 @@ def run_language(cfg: dict, lang: str, set_ids: list[str], date: str, args, refr
     for set_id in set_ids:
         lang_set = cfg["languages"][lang].get("sets", {}).get(set_id, {})
         asset_ids = lang_set.get("assets", cfg["sets"][set_id]["assets"])
+        if weekly:  # the "top mega-cap mover" card is a daily-only feature
+            asset_ids = [a for a in asset_ids if cfg["assets"][a]["source"] != "top_mover"]
         n = order.index(set_id) + 1
         stem = f"{n}_{set_id}"
         work = ROOT / "build" / date / lang / set_id
         work.mkdir(parents=True, exist_ok=True)
         print(f"\n=== [{lang}] {loc['sets'][set_id]['title']} ===")
 
-        data = fetch_set(lang, set_id, asset_ids, cfg, date, ROOT, args.refresh, refreshed)
+        data = fetch_set(lang, set_id, asset_ids, cfg, date, ROOT, args.refresh, refreshed, weekly)
         script = build_script(data, loc, cfg["sets"][set_id].get("mover_in_hook_only", False))
         (work / "script.json").write_text(json.dumps(script, indent=2, ensure_ascii=False))
         rate = cfg["languages"][lang].get("voice_rate", cfg["voice_rate"])
@@ -131,11 +134,21 @@ def main() -> None:
     ap.add_argument("--lang", default="all", choices=["all", *cfg["languages"]])
     ap.add_argument("--set", default="all", choices=["all", *cfg["sets"]])
     ap.add_argument("--voice", default=None, help="override the edge-tts voice (single --lang only)")
+    ap.add_argument("--mode", default="auto", choices=["auto", "daily", "weekly"],
+                    help="auto: Mon-Fri daily, Saturday week-in-review, Sunday no posts")
     ap.add_argument("--refresh", action="store_true")
     ap.add_argument("--skip-render", action="store_true")
     args = ap.parse_args()
     if args.voice and args.lang == "all":
         ap.error("--voice needs a single --lang")
+
+    if args.mode == "auto":
+        weekday = _date.fromisoformat(args.date).weekday()  # Mon=0 … Sun=6
+        if weekday == 6:
+            print(f"[skip] {args.date} is a Sunday: no posts (keeps every grid row a full day).")
+            return
+        args.mode = "weekly" if weekday == 5 else "daily"
+    print(f"[mode] {args.mode} for {args.date}")
 
     langs = list(cfg["languages"]) if args.lang == "all" else [args.lang]
     sets = cfg["post_order"] if args.set == "all" else [args.set]

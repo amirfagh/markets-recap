@@ -19,7 +19,7 @@ export const Hook: React.FC<Props> = ({ showPrice, titleLines, dateLabel, mover,
   const bar = enter(frame, fps, 4, 20);
 
   return (
-    <AbsoluteFill style={{ top: SAFE.top + 110, left: SAFE.side, right: SAFE.side, width: 1080 - SAFE.side * 2, opacity: out }}>
+    <AbsoluteFill style={{ top: SAFE.top + 90, left: SAFE.side, right: SAFE.side, width: 1080 - SAFE.side * 2, opacity: out }}>
       <div style={{ transform: `translateY(${(1 - t1) * 60}px)`, opacity: t1 }}>
         <div style={{ fontSize: titleLines[0].length > 12 ? 96 : 112, fontWeight: 900, lineHeight: 1.02, letterSpacing: -4, color: theme.text }}>
           {titleLines[0]}
@@ -61,7 +61,7 @@ export const Hook: React.FC<Props> = ({ showPrice, titleLines, dateLabel, mover,
             alignItems: 'center',
             gap: 22,
             color,
-            fontSize: 190,
+            fontSize: 170,
             fontWeight: 900,
             letterSpacing: -7,
             lineHeight: 1,
@@ -70,7 +70,7 @@ export const Hook: React.FC<Props> = ({ showPrice, titleLines, dateLabel, mover,
             transformOrigin: 'center',
           }}
         >
-          <span style={{ fontSize: 100 }}>{arrow(mover.change_pct)}</span>
+          <span style={{ fontSize: 90 }}>{arrow(mover.change_pct)}</span>
           {fmtPct(pct, 1)}
         </div>
         {showPrice && (

@@ -177,5 +177,39 @@
   "post_caption": "{title} — {date}\nBiggest mover: {mover_name} {mover_pct}.\n{lines}\nNot financial advice.",
   "hook_with_price": "{name} {verb} {pct}, to {price}. Today's biggest mover.",
   "hook_down": "{name} lost {pct} in one day. Were you still holding?",
-  "hook_up": "{name} jumped {pct} in one day. Did you already sell?"
+  "hook_up": "{name} jumped {pct} in one day. Did you already sell?",
+  "week": {
+    "hook_down": "{name} lost {pct} this week. Were you still holding?",
+    "hook_up": "{name} jumped {pct} this week. Did you already sell?",
+    "summary": "{up} up, {down} down on the week.",
+    "outro": "Follow for Monday's recap.",
+    "ui": {
+      "today": "This week",
+      "summary": "This week's board",
+      "follow": "Follow for Monday's recap"
+    },
+    "sets": {
+      "wallstreet": {
+        "title": "Wall Street: Week in Review",
+        "title_lines": [
+          "Wall Street",
+          "Week in Review"
+        ]
+      },
+      "crypto": {
+        "title": "Crypto: Week in Review",
+        "title_lines": [
+          "Crypto",
+          "Week in Review"
+        ]
+      },
+      "macro": {
+        "title": "Global Macro: Week in Review",
+        "title_lines": [
+          "Global Macro",
+          "Week in Review"
+        ]
+      }
+    }
+  }
 }

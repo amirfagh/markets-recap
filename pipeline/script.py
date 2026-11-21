@@ -10,8 +10,19 @@ SMALL = 0.5      # "edged up / slipped"
 BIG = 3.0        # "surged / tumbled"
 
 
-def load_locale(root: Path, lang: str) -> dict:
-    return json.loads((root / "locales" / f"{lang}.json").read_text())
+def load_locale(root: Path, lang: str, weekly: bool = False) -> dict:
+    """Load a locale; for the Saturday week-in-review, overlay its "week" section."""
+    loc = json.loads((root / "locales" / f"{lang}.json").read_text())
+    week = loc.pop("week", {})
+    if weekly:
+        for key, value in week.items():
+            if key == "ui":
+                loc["ui"] = {**loc["ui"], **value}
+            elif key == "sets":
+                loc["sets"] = {k: {**loc["sets"][k], **value.get(k, {})} for k in loc["sets"]}
+            else:
+                loc[key] = value
+    return loc
 
 
 def date_label(loc: dict, iso: str) -> str:

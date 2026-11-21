@@ -15,8 +15,9 @@ export const theme = {
   font: "'Inter', system-ui, sans-serif",
 };
 
-// Platform UI safe zones for a 1080x1920 frame: nothing in top 10% or bottom 15%.
-export const SAFE = { top: 192, bottom: 1920 - 288, side: 72 };
+// Instagram/TikTok UI safe zone for 1080x1920: text only in y 250..1505 (ig-reel / instagram-reels-publishing);
+// the action rail (x >= ~960, y >= ~1150) stays clear: cards end by y 1150, captions are padded 150px.
+export const SAFE = { top: 250, bottom: 1505, side: 72 };
 
 export const FLAT = 0.05;
 

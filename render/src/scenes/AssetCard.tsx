@@ -24,11 +24,11 @@ export const AssetCard: React.FC<Props> = ({ asset, index, total, ui, duration }
   return (
     <AbsoluteFill
       style={{
-        top: SAFE.top + 120,
+        top: SAFE.top + 100,
         left: SAFE.side,
         right: SAFE.side,
         width: cardW,
-        height: 900,
+        height: 800,
         opacity: out,
         transform: `translateY(${(1 - inP) * 80 - (1 - out) * 40}px) scale(${0.96 + inP * 0.04})`,
       }}

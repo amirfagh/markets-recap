@@ -21,7 +21,7 @@ export const Outro: React.FC<Props> = ({ title, dateLabel, ui }) => {
         left: SAFE.side,
         right: SAFE.side,
         width: 1080 - SAFE.side * 2,
-        height: 860,
+        height: 800,
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',

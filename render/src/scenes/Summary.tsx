@@ -14,7 +14,7 @@ export const Summary: React.FC<Props> = ({ assets, up, down, ui, duration }) => 
   const maxAbs = Math.max(...assets.map((a) => Math.abs(a.change_pct)), 0.01);
 
   return (
-    <AbsoluteFill style={{ top: SAFE.top + 110, left: SAFE.side, right: SAFE.side, width: 1080 - SAFE.side * 2, opacity: out }}>
+    <AbsoluteFill style={{ top: SAFE.top + 90, left: SAFE.side, right: SAFE.side, width: 1080 - SAFE.side * 2, opacity: out }}>
       <div style={{ opacity: head, transform: `translateY(${(1 - head) * 40}px)` }}>
         <div style={{ fontSize: 84, fontWeight: 900, color: theme.text, letterSpacing: -2 }}>{ui.summary}</div>
         <div style={{ fontSize: 40, fontWeight: 700, marginTop: 6 }}>

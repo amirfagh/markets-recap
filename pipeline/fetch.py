@@ -26,6 +26,7 @@ def _from_closes(closes: list[float], as_of: str) -> dict:
         "prev_close": closes[-2],
         "change_pct": (closes[-1] / closes[-2] - 1) * 100,
         "spark": closes[-SPARK_POINTS:],
+        "week_ago": closes[-SPARK_POINTS] if len(closes) >= SPARK_POINTS else closes[0],
         "as_of": as_of,
     }
 
@@ -61,13 +62,14 @@ def _coingecko(coin_id: str) -> dict:
     spot = _cg_get("/simple/price", {"ids": coin_id, "vs_currencies": "usd", "include_24hr_change": "true",
                                       "include_last_updated_at": "true"})[coin_id]
     chart = _cg_get(f"/coins/{coin_id}/market_chart",
-                    {"vs_currency": "usd", "days": SPARK_POINTS, "interval": "daily"})
+                    {"vs_currency": "usd", "days": 7, "interval": "daily"})
     daily = [float(p[1]) for p in chart.get("prices", [])]
     spark = (daily[:-1] + [float(spot["usd"])])[-SPARK_POINTS:] if daily else [float(spot["usd"])]
     return {
         "price": float(spot["usd"]),
         "change_pct": float(spot["usd_24h_change"]),
         "spark": spark,
+        "week_ago": daily[0] if daily else float(spot["usd"]),
         "as_of": datetime.fromtimestamp(spot["last_updated_at"], tz=timezone.utc).isoformat(),
         "always_live": True,
     }
@@ -100,7 +102,7 @@ def _fetch_asset(asset_id: str, spec: dict) -> dict:
     return {"symbol": spec["symbol"], "ticker": spec["ticker"], **row}
 
 
-def get_asset(asset_id: str, cfg: dict, date: str, root: Path, refresh: bool) -> dict:
+def get_asset(asset_id: str, cfg: dict, date: str, root: Path, refresh: bool, weekly: bool = False) -> dict:
     spec = cfg["assets"][asset_id]
     path = root / "data" / date / "_assets" / f"{asset_id}.json"
     if path.exists() and not refresh:
@@ -111,17 +113,21 @@ def get_asset(asset_id: str, cfg: dict, date: str, root: Path, refresh: bool) ->
         path.write_text(json.dumps(row, indent=2))
     # "stale" = the market's last session is not today (e.g. Tadawul/EGX on a Friday).
     stale = not row.get("always_live") and row["as_of"][:10] < date
-    return {"id": asset_id, "unit": spec["unit"], "decimals": spec["decimals"], "source": spec["source"],
-            "stale": stale, **row}
+    out = {"id": asset_id, "unit": spec["unit"], "decimals": spec["decimals"], "source": spec["source"],
+           "stale": stale, **row}
+    if weekly:  # week-in-review: change vs ~one week ago; "last close" no longer applies
+        ref = row.get("week_ago") or row["spark"][0]
+        out.update(change_pct=(row["price"] / ref - 1) * 100, stale=False, period="week")
+    return out
 
 
 def fetch_set(lang: str, set_id: str, asset_ids: list[str], cfg: dict, date: str, root: Path,
-              refresh: bool = False, refreshed: set | None = None) -> dict:
+              refresh: bool = False, refreshed: set | None = None, weekly: bool = False) -> dict:
     """refreshed: asset ids already re-fetched in this run (so --refresh fetches each once)."""
     refreshed = refreshed if refreshed is not None else set()
     assets = []
     for aid in asset_ids:
-        assets.append(get_asset(aid, cfg, date, root, refresh and aid not in refreshed))
+        assets.append(get_asset(aid, cfg, date, root, refresh and aid not in refreshed, weekly))
         refreshed.add(aid)
     data = {"date": date, "lang": lang, "set": set_id,
             "fetched_at": datetime.now(timezone.utc).isoformat(), "assets": assets}

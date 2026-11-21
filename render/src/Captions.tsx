@@ -4,8 +4,8 @@ import { theme, useAccent } from './theme';
 import type { Segment, Word } from './types';
 
 const MAX_WORDS = 3;
-// Lower third, kept above the bottom 15% platform UI zone.
-const CENTER_Y = 1395;
+// Lower third, above Instagram's caption block and clear of the right-hand action rail.
+const CENTER_Y = 1340;
 
 type Chunk = { words: Word[]; start: number; end: number };
 
@@ -40,7 +40,7 @@ export const Captions: React.FC<{ segments: Segment[]; dir: 'ltr' | 'rtl' }> = (
   const pop = spring({ frame: frame - Math.round(chunk.start * fps), fps, config: { damping: 13, stiffness: 220, mass: 0.5 } });
 
   return (
-    <AbsoluteFill style={{ top: CENTER_Y - 110, height: 220, alignItems: 'center', justifyContent: 'center', padding: '0 80px' }}>
+    <AbsoluteFill style={{ top: CENTER_Y - 110, height: 220, alignItems: 'center', justifyContent: 'center', padding: '0 150px' }}>
       <div
         dir={dir}
         style={{

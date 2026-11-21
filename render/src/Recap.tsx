@@ -146,7 +146,7 @@ export const Recap: React.FC<RecapProps> = (p) => {
         <div
           style={{
             position: 'absolute',
-            bottom: 1920 - SAFE.bottom + 20,
+            bottom: 1920 - SAFE.bottom,
             left: 0,
             right: 0,
             textAlign: 'center',
