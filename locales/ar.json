@@ -191,7 +191,9 @@
     "follow": "تابعنا لملخص الغد",
     "follow_btn": "+ تابعنا",
     "disclaimer": "هذا ليس نصيحة مالية.",
-    "top_mover": "الأكثر حركة بين العمالقة"
+    "top_mover": "الأكثر حركة بين العمالقة",
+    "close_label": "إغلاق {d} {month}",
+    "live_label": "24 ساعة"
   },
   "post_caption": "{title} — {date}\nالأكبر حركة: {mover_name} {mover_pct}.\n{lines}\nهذا ليس نصيحة مالية.",
   "round_spoken_prices": true,

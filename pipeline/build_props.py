@@ -22,6 +22,17 @@ def _fix_caption(loc: dict, text: str) -> str:
     return text
 
 
+def change_label(loc: dict, a: dict) -> str:
+    """Label next to the % change: the session's closing date (videos are posted the next morning),
+    "24h" for crypto, or the week label in week-in-review mode."""
+    if a.get("period") == "week":
+        return loc["ui"]["today"]
+    if a.get("always_live"):
+        return loc["ui"]["live_label"]
+    d = _date.fromisoformat(a["as_of"][:10])
+    return loc["ui"]["close_label"].format(d=d.day, month=loc["months_long"][d.month - 1])
+
+
 def date_parts(iso: str, loc: dict) -> dict:
     d = _date.fromisoformat(iso)
     return {"day": f"{d.day:02d}", "month": loc["months"][d.month - 1], "year": str(d.year)}
@@ -54,7 +65,8 @@ def build_props(cfg: dict, lang: str, set_id: str, data: dict, script: dict, tts
         "down": script["down"],
         "assets": [{"id": a["id"], "name": display_name(loc, a), "ticker": a["ticker"], "unit": a["unit"],
                     "decimals": a["decimals"], "price": a["price"], "change_pct": a["change_pct"],
-                    "spark": a["spark"], "topMover": bool(a.get("top_mover")), "stale": bool(a.get("stale"))}
+                    "spark": a["spark"], "topMover": bool(a.get("top_mover")), "stale": bool(a.get("stale")),
+                    "changeLabel": change_label(loc, a)}
                    for a in data["assets"]],
         "hookShowsPrice": bool(script.get("mover_in_hook_only")),
         "segments": [{**{k: s[k] for k in ("id", "scene", "start", "duration")},

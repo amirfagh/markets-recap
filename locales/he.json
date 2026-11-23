@@ -172,7 +172,9 @@
     "follow": "עקבו לסיכום של מחר",
     "follow_btn": "+ עקבו",
     "disclaimer": "אין לראות בכך ייעוץ השקעות.",
-    "top_mover": "הענקית הבולטת"
+    "top_mover": "הענקית הבולטת",
+    "close_label": "סגירה {d} ב{month}",
+    "live_label": "24 שעות"
   },
   "post_caption": "{title} — {date}\nהתנועה הגדולה: {mover_name} {mover_pct}.\n{lines}\nאין לראות בכך ייעוץ השקעות.",
   "round_spoken_prices": true,

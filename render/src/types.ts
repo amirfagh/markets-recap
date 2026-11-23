@@ -19,6 +19,7 @@ export type Asset = {
   spark: number[];
   topMover?: boolean;
   stale?: boolean;
+  changeLabel?: string;
 };
 
 export type Ui = {

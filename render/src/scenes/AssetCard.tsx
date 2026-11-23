@@ -108,7 +108,7 @@ export const AssetCard: React.FC<Props> = ({ asset, index, total, ui, duration }
             <span style={{ fontSize: 40 }}>{arrow(asset.change_pct)}</span>
             {fmtPct(pct)}
           </div>
-          <div style={{ color: theme.muted, fontSize: 34, fontWeight: 600, opacity: pill }}>{asset.stale ? ui.last_close : ui.today}</div>
+          <div style={{ color: theme.muted, fontSize: 34, fontWeight: 600, opacity: pill }}>{asset.changeLabel ?? (asset.stale ? ui.last_close : ui.today)}</div>
         </div>
 
         <div style={{ flex: 1 }} />

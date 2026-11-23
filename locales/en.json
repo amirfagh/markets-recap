@@ -172,7 +172,9 @@
     "follow": "Follow for tomorrow's recap",
     "follow_btn": "+ Follow",
     "disclaimer": "Not financial advice.",
-    "top_mover": "Top mega-cap mover"
+    "top_mover": "Top mega-cap mover",
+    "close_label": "{month} {d} close",
+    "live_label": "24h"
   },
   "post_caption": "{title} — {date}\nBiggest mover: {mover_name} {mover_pct}.\n{lines}\nNot financial advice.",
   "hook_with_price": "{name} {verb} {pct}, to {price}. Today's biggest mover.",
