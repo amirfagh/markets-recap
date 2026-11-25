@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-25",
+  "lang": "ar",
+  "set": "crypto",
+  "fetched_at": "2026-11-25T21:44:50.544941+00:00",
+  "assets": [
+    {
+      "id": "btc",
+      "unit": "usd",
+      "decimals": 0,
+      "source": "coingecko",
+      "stale": false,
+      "symbol": "bitcoin",
+      "ticker": "BTC",
+      "price": 60312.0,
+      "change_pct": 0.7928362218748785,
+      "spark": [
+        58817.925597578746,
+        60121.30168956966,
+        61172.01580644091,
+        61227.54737867492,
+        59758.920537549915,
+        60312.0
+      ],
+      "week_ago": 62996.68018190857,
+      "as_of": "2026-11-25T21:38:57+00:00",
+      "always_live": true
+    },
+    {
+      "id": "eth",
+      "unit": "usd",
+      "decimals": 0,
+      "source": "coingecko",
+      "stale": false,
+      "symbol": "ethereum",
+      "ticker": "ETH",
+      "price": 1689.14,
+      "change_pct": 0.684036529445334,
+      "spark": [
+        1619.5095309045366,
+        1682.8520025853304,
+        1721.6166685470128,
+        1709.3163560355863,
+        1677.952425722007,
+        1689.14
+      ],
+      "week_ago": 1775.10021149601,
+      "as_of": "2026-11-25T21:38:51+00:00",
+      "always_live": true
+    },
+    {
+      "id": "sol",
+      "unit": "usd",
+      "decimals": 2,
+      "source": "coingecko",
+      "stale": false,
+      "symbol": "solana",
+      "ticker": "SOL",
+      "price": 70.77,
+      "change_pct": 1.9763005810050849,
+      "spark": [
+        68.75713504015319,
+        70.20337421112539,
+        70.60673387206066,
+        71.99434285082933,
+        69.61670486990322,
+        70.77
+      ],
+      "week_ago": 73.55720706519735,
+      "as_of": "2026-11-25T21:38:36+00:00",
+      "always_live": true
+    },
+    {
+      "id": "xrp",
+      "unit": "usd",
+      "decimals": 4,
+      "source": "coingecko",
+      "stale": false,
+      "symbol": "ripple",
+      "ticker": "XRP",
+      "price": 0.943919,
+      "change_pct": 2.491742356452708,
+      "spark": [
+        0.9092904883713346,
+        0.9309196532178046,
+        0.9277383099759297,
+        0.9397595189774717,
+        0.924149200519897,
+        0.943919
+      ],
+      "week_ago": 0.9668144622224588,
+      "as_of": "2026-11-25T21:39:28+00:00",
+      "always_live": true
+    },
+    {
+      "id": "bnb",
+      "unit": "usd",
+      "decimals": 0,
+      "source": "coingecko",
+      "stale": false,
+      "symbol": "binancecoin",
+      "ticker": "BNB",
+      "price": 554.43,
+      "change_pct": 0.9799439148732377,
+      "spark": [
+        539.6332187921867,
+        547.6898349181746,
+        558.7258656020496,
+        556.1438370893835,
+        547.8547419998016,
+        554.43
+      ],
+      "week_ago": 581.9489778022829,
+      "as_of": "2026-11-25T21:40:08+00:00",
+      "always_live": true
+    }
+  ]
+}
